@@ -1,7 +1,9 @@
 """
 stringjumble.py
-Author: <your name>
-Credit: <sources>
+Author: Andrew Chen
+Credit: https://github.com/HHS-IntroProgramming/String-Jumble
+https://stackoverflow.com/questions/9050355/using-quotation-marks-inside-quotation-marks
+https://developers.google.com/edu/python/strings
 
 Assignment:
 
@@ -25,3 +27,32 @@ ydnah dnif yam uoy taht skcirt ro seuqinhcet wef a era erehT
 handy find may you that tricks or techniques few a are There
 erehT era a wef seuqinhcet ro skcirt taht uoy yam dnif ydnah
 """
+text = input("Please enter a string of text (the bigger the better): ")
+print ("You entered \"{0}\". Now jumble it:".format(text))
+
+#Reverses all text
+reverseall = ""
+for x in range(1,len(text) + 1):
+    reverseall += (text[-x])
+print (reverseall)
+
+#Reverses word order
+reverseword = ""
+lastspace = 0
+for x in range(1,len(text) + 1):
+    if text[x-1] == " ":
+        reverseword = text[lastspace:x-1] + " " + reverseword
+        lastspace = x
+reverseword = text[lastspace: -1] + text[-1] + " " + reverseword
+print (reverseword)
+
+#Reverses word order
+reverseletter = ""
+lastspace = 0
+for x in range(1,len(reverseall) + 1):
+    if reverseall[x-1] == " ":
+        reverseletter = reverseall[lastspace:x-1] + " " + reverseletter
+        lastspace = x
+reverseletter = reverseall[lastspace: -1] + reverseall[-1] + " " + reverseletter
+print (reverseletter)
+
